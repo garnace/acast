@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>	
+  <title> Welcome to Moody Foodie </title>
+  <link rel="stylesheet" type="text/css" href="/css/firstPage.css">
+
+</head>
+<body style="background-image: url({backgroundImage})">
+	<div class="frame" id="logo">
+	<h2>This text:{stage}<h2>
+      <img id="image" src="../images/backgrounds/scaledDownLogo.jpg" />
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../scripts/firstPage.js"></script>
+</body>
+</html>

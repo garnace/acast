@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>	
+  <title>{recipe.name}</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/randomRecipe.css">
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/quiz.js"></script>
+<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+var query=window.location.href.split('?')[1];
+var queryat = query.split('&');
+var backG = new Array();
+
+backG= ['icx/4_rate_skill_bg.png','icx/recipe_page05background.png','icx/3_rate_time_bg.png'];
+var ranG = Math.floor(Math.random()*backG.length);
+
+
+
+
+
+levels=['unspecified','expert','intermediate','beginner'];
+times=['unspecified','One+ hours','2+ hours','5+ minutes'];
+moods=['unspecified','Adventurous','Lazy','Stressed'];
+var pair = new Array();
+var lenq =  queryat.length;
+var pairs={};
+//
+
+//$('div[data-role=header]').css({background-image:url('icx/3_rate_time_bg.png')});
+//$('div[class*=qww]').css({background-image:url('icx/3_rate_time_bg.png')});
+//$("div[class*=qww]").css({background-color:'#888888'});
+//$(".qww1").css({background-color:"#888888"});
+//$(".qww1").html("<p>OoOo</p>").css({background:"#777777",textAlign:"center"});
+//$("div[class*=qww1]").html("<p>OoOo</p>").css({background:"#777777",textAlign:"center",font:"25px Helvetica, Arial, Sans-Serif, black",fontSize:"250%",color:"black"}).css('color','red');
+//$("div[class*=qww1]").css({background:"#007777",textAlign:"center"});
+
+
+
+//--not needed--$("div[class*=qww1]").css({background:"url("+backG[ranG]+")",textAlign:"center"});
+//$('div[class*=qww]').css({background-color:'yellow'});
+
+if (query != null) {
+  if (lenq > 0)
+  {
+	for (var l =0; l< queryat.length;l++){
+		pair=queryat[l].split('=');
+		pairs[pair[0]]=pair[1];
+	}
+  }
+  else
+  {
+	pair[0]=query.split('=')[0];
+	pair[1]=query.split('=')[1];
+  }
+
+}
+else {
+pair=['level','expert0'];
+
+}
+
+//alert("ready"+query+pair[0].toString()+levels[2].toString());
+//alert("ready"+query+pair[0].toString());
+
+//document.getElementById("titleU").innerHTML="<center><p style=\"color:red;font-size=180%;!important;\">"+levels[pairs['expertise']].toString()+"Level</p></center>";
+var levLen=levels[pairs['expertise']].length;
+var timeLen=times[pairs['time']].length;
+var lev=levels[pairs['expertise']].toString().substr(0,1).toUpperCase()+levels[pairs['expertise']].toString().substr(1,levLen);
+//$("#titleU").html("<center><p style=\"color:orange;font-size=180%;!important;\">"+levels[pairs['expertise']].toString()+"Level"+lev.toString()+"</p></center><br>").css({fontSize:"180%"});
+$("#titleU").append("<h2>"+" For the: "+moods[pairs['mood']].toString()+" Level: "+lev.toString()+"</h2>");
+$("#titleU").append("<h2>"+"You have: "+times[pairs['time']].toString()+"</h2>");
+//$("#titleU").append("<center><p style=\"color:orange;font-size=180%;!important;\">"+"You have: "+times[pairs['time']].toString()+"</p></center><br>").css({fontSize:"100%"});
+
+
+});
+
+
+
+
+
+	function reload() {
+		location.reload() 	;
+	}
+</script>
+<script>
+	function loadChickenSalad() {
+		location.href = "images/recipe_page_mockup3.png";
+	}
+</script>
+</head>
+<body style="background: url({backgroundImage}) center center no-repeat">
+
+        <div class="recipeInfo" id="titleU"></div>
+		<!--h2>WOULD YOU LIKE TO COOK THIS?</h2-->
+	<div>
+
+
+	<div class="recipeInfo">
+		<h2>WOULD YOU LIKE TO COOK THIS?</h2>
+		<img class="recipeImg" src={recipe.imageUrl} >
+
+		</img>
+		<h3>{recipe.name}<h3>
+		<img src="images/btn_yes_off.png" onclick="loadChickenSalad()"/>
+		<img src="images/cutcaster-photo-100322602-Hell-No-Red-Button.jpg" onclick="reload()"/>
+	</div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../scripts/randomRecipe.js"></script>
+
+</body>
+</html>

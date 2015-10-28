@@ -1,0 +1,32 @@
+.recipeImg {
+	height: 400px;
+	width: 600px;
+}
+
+.recipeInfo {
+	margin: 0 auto;
+	width: 600px;
+}
+
+h2, h3 {
+	text-align: center;
+}
+
+
+@font-face {
+    font-family: 'TitleFont'; /*a name to be used later*/
+    src: url('/fonts/HelveticaNeueLTPro-UltLt-Title.otf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'SubtitleFont'; /*a name to be used later*/
+    src: url('/fonts/Kenzo Regular_0-Subtitle.otf'); /*URL to font*/
+}
+
+h2 {
+    font-family: 'TitleFont';
+}
+
+h3 {
+	font-family: 'SubtitleFont';
+}
